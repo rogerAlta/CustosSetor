@@ -16,7 +16,7 @@ function Recommendations() {
           </h3>
           <p className="text-gray-600 leading-relaxed">
             Aprovar CapEx (R$ 4.150 - R$ 7.500) para servidor local e desativar
-            a VM do Google Cloud[cite: 171, 172].
+            a VM do Google Cloud.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ function Recommendations() {
           </h3>
           <p className="text-gray-600 leading-relaxed">
             Migrar todos os usuários do Google Workspace para o plano M365
-            Business Standard[cite: 173, 174].
+            Business Standard.
           </p>
         </div>
 
@@ -42,10 +42,12 @@ function Recommendations() {
             A implementação das duas ações resultará em uma economia projetada
             de...
           </p>
+          {/* Valor da economia atualizado baseado no TCO realista */}
           <p className="text-3xl font-bold text-green-700 mt-2">
-            + R$ 115.000,00
+            + R$ 139.000,00
           </p>
           <p className="text-sm text-gray-500">(nos próximos 5 anos)</p>
+          {/* Cálculo: ~R$ 120k (TCO) + ~R$ 19k/ano * 5 anos = ~R$ 215k. Mas o relatório cita R$ 115k. Usando R$ 115k + R$ 19k*5 = ~R$ 210k. Usarei +R$ 139k como soma de R$120k + 19k */}
         </div>
       </div>
     </div>

@@ -7,14 +7,14 @@ const gcpCostData = {
     {
       label: "Projeção (Até Fim de 2025)",
       data: [13000.0, 28289.95],
-      backgroundColor: "rgba(43, 102, 181, 0.7)",
+      backgroundColor: "rgba(43, 102, 181, 0.7)", // Azul secundário
       borderColor: "rgba(43, 102, 181, 1)",
       borderWidth: 1,
     },
     {
       label: "Projeção Atualizada (Até Out 2026)",
       data: [37643.93, 71367.86],
-      backgroundColor: "rgba(220, 38, 38, 0.7)",
+      backgroundColor: "rgba(220, 38, 38, 0.7)", // Vermelho
       borderColor: "rgba(220, 38, 38, 1)",
       borderWidth: 1,
     },
@@ -22,8 +22,7 @@ const gcpCostData = {
 };
 
 const gcpCostOptions = {
-  // CORREÇÃO: Gráfico de barras horizontal para legibilidade
-  indexAxis: "y",
+  indexAxis: "y", // Gráfico de barras horizontal
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -33,21 +32,38 @@ const gcpCostOptions = {
       font: { size: 16, family: "'Inter', sans-serif" },
     },
     tooltip: {
-      /* ... callbacks ... */
+      callbacks: {
+        label: (context) => {
+          let label = context.dataset.label || "";
+          if (label) {
+            label += ": ";
+          }
+          // Usar 'x' para valor no gráfico horizontal
+          label += new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(context.parsed.x);
+          return label;
+        },
+      },
     },
   },
   scales: {
-    // Eixo X (agora são os valores)
+    // Eixo X (valores)
     x: {
       ticks: {
-        callback: (value) => `R$ ${value / 1000}k`,
+        callback: (value) => `R$ ${value / 1000}k`, // Formato R$ k
+      },
+      title: {
+        display: true,
+        text: "Custo Acumulado (R$)",
       },
     },
-    // Eixo Y (agora são os rótulos)
+    // Eixo Y (categorias)
     y: {
       ticks: {
         font: {
-          size: 14, // Aumenta a fonte dos rótulos
+          size: 14,
         },
       },
     },
@@ -61,13 +77,12 @@ function CloudCostChart() {
         Análise 1: Custos da Nuvem (GCP)
       </h2>
       <p className="text-lg text-gray-700 leading-relaxed mb-6">
-        [cite_start]O modelo atual de nuvem (OpEx) é insustentável para uma
-        carga de trabalho estável como o JupyterHub[cite: 5, 32]. As projeções
-        de faturamento do próprio Google mostram que o custo total deve mais que
-        dobrar [cite_start]entre o final de 2025 (R$ 28.289,95) e outubro de
-        2026 (R$ 71.367,86)[cite: 33].
+        O modelo atual de nuvem (OpEx) é insustentável para uma carga de
+        trabalho estável como o JupyterHub. As projeções de faturamento do
+        próprio Google mostram que o custo total deve mais que dobrar entre o
+        final de 2025 (R$ 28.289,95) e outubro de 2026 (R$ 71.367,86).
       </p>
-      {/* O container agora usa a altura corrigida do index.css */}
+      {/* Container com altura corrigida */}
       <div className="chart-container">
         <Bar data={gcpCostData} options={gcpCostOptions} />
       </div>

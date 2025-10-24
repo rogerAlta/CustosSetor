@@ -5,11 +5,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTopButton from "./components/ScrollToTopButton"; // Sugestão
 
-// Importações dos Componentes de Análise (Refatorados)
+// Importações dos Componentes de Análise (Refatorados e Corrigidos)
 import KeyMetrics from "./components/KeyMetrics";
-import KeyTerms from "./components/KeyTerms"; // NOVO COMPONENTE
+import KeyTerms from "./components/KeyTerms";
 import CloudCostChart from "./components/CloudCostChart";
-import TcoChart from "./components/TcoChart";
+import TcoCharts from "./components/TcoCharts"; // RENOMEADO AQUI
 import LicenseCharts from "./components/LicenseCharts";
 import QualitativeBenefits from "./components/QualitativeBenefits";
 import Recommendations from "./components/Recommendations";
@@ -52,7 +52,7 @@ function App() {
         <section id="overview" className="space-y-12">
           {/* 1. Métricas clicáveis */}
           <KeyMetrics />
-          {/* 2. Definição de Termos (NOVO) */}
+          {/* 2. Definição de Termos */}
           <KeyTerms />
         </section>
 
@@ -61,7 +61,7 @@ function App() {
             Análise de Infraestrutura: Nuvem vs. Local
           </h2>
           <CloudCostChart />
-          <TcoChart /> {/* Sugiro adicionar o botão "Mostrar Tabela" aqui */}
+          <TcoCharts /> {/* RENOMEADO AQUI */}
         </section>
 
         <section

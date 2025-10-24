@@ -16,11 +16,10 @@ function KeyTerms() {
               CapEx (Despesa de Capital)
             </h3>
             <p className="text-gray-600">
-              É um **investimento inicial único**. Você compra um ativo (como um
+              É um <span className="font-bold">investimento inicial único</span>. Você compra um ativo (como um
               servidor) que terá valor ao longo de vários anos.
               <br />
-              <strong>Exemplo:</strong> Comprar um servidor de R$ 4.150,00[cite:
-              68].
+              <strong>Exemplo:</strong> Comprar um servidor de R$ 4.150,00.
             </p>
           </div>
         </div>
@@ -33,11 +32,10 @@ function KeyTerms() {
               OpEx (Despesa Operacional)
             </h3>
             <p className="text-gray-600">
-              É um **custo recorrente** (mensal ou anual) para manter algo
+              É um <span className="font-bold">custo recorrente</span> (mensal ou anual) para manter algo
               funcionando.
               <br />
-              [cite_start]<strong>Exemplo:</strong> Pagar a fatura mensal do
-              Google Cloud[cite: 5, 27].
+              <strong>Exemplo:</strong> Pagar a fatura mensal do Google Cloud.
             </p>
           </div>
         </div>

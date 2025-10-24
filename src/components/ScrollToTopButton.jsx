@@ -4,20 +4,13 @@ import { ArrowUp } from "lucide-react";
 function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mostra o botão quando o usuário rolar 200px para baixo
   const toggleVisibility = () => {
-    if (window.scrollY > 200) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    if (window.scrollY > 200) setIsVisible(true);
+    else setIsVisible(false);
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
