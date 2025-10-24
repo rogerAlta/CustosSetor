@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer components {
+  /* CORREÇÃO: 
+    - Altura padrão (mobile) aumentada para 350px.
+    - Altura em desktop (md:) aumentada para 400px.
+    Isso corrige os "gráficos minúsculos".
+  */
+  .chart-container {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px; /* Mais altura para mobile */
+    max-height: 450px;
+  }
+
+  @media (min-width: 768px) {
+    .chart-container {
+      height: 400px; /* Mais altura para desktop */
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
